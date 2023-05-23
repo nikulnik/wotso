@@ -1,0 +1,277 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+.minesweeper{
+    padding-bottom: 50px;
+}
+
+.dark {
+    background-color: #3d3939;
+    color:#1a79d1;
+}
+
+.container {
+    width: 100%;
+    max-width: 1220px;
+    padding: 0 10px;
+    margin: 0 auto;
+}
+
+.minesweeper__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.minesweeper__title {
+    font-size: 56px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.minesweeper__subtitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.minesweeper__box {
+    width: min-content;
+    max-width: 100%;
+}
+
+.minesweeper__stat {
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #e1dfdf;
+    padding: 10px;
+    border: 5px solid #e1dfdf;
+    position: relative;
+}
+
+.menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #e1dfdf;
+    border: 1px solid #000;
+    padding: 20px;
+    width: 100%;
+    transform: scale(0);
+    transition: all .3s ease 0s;
+}
+
+.menu.menu--active {
+    transform: scale(1);
+}
+
+.menu__btn {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100%;
+    max-width: 20px;
+    border: none;
+    background-color: transparent;
+    min-height: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.menu__btn::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+    position: absolute;
+    top: 4px;
+    left: 0;
+    right: 0;
+}
+
+.menu__btn::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+}
+
+.menu__btn-line {
+    position: absolute;
+    display: block;
+    width: 20px;
+    background-color: #000;
+    height: 2px;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.menu__list-item {
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.menu__list-item::after {
+    content: " ❯";
+    position: absolute;
+    top: 21px;
+}
+
+.menu__sublist {
+    opacity: 0;
+    font-size: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0);
+    transition: all .3s ease 0s;
+}
+
+
+.menu__sublist-item {
+    margin-bottom: 10px;
+    transition: all .3s ease 0s;
+}
+
+.menu__sublist-item.menu__sublist-item--active {
+    background-color: rgb(0, 177, 0);
+    color: #fff;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.menu__sublist-item:hover {
+    background-color: rgb(177, 115, 0);
+    color: #fff;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.menu__list-item:hover .menu__sublist {
+    opacity: 1;
+    font-size: inherit;
+    transform: scale(1);
+}
+
+.start__btn {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.start__btn-img {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+    display: block;
+    cursor: pointer;
+}
+
+.mines__count {
+    padding: 5px 10px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    border: 2px solid #000;
+}
+
+.mines__count-img {
+    padding-left: 5px;
+    margin-left: 5px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-left: 2px solid #000;
+}
+
+.mines__desk {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+.time {
+    text-align: center;
+    width: 100%;
+    padding-top: 15px;
+    font-size: 20px;
+    color: red;
+}
+
+.clicks__count {
+    padding-top: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+.minesweeper__desk {
+    border: 5px solid #e1dfdf;
+    border-radius: 0 0 5px 5px;
+}
+
+.cell {
+    border: 1px solid black;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.row {
+    display: flex;
+}
