@@ -350,7 +350,7 @@ function basicMarkup() {
     minesweeperInner.classList.add("minesweeper__inner");
     const minesweeperTitle = document.createElement("h1");
     minesweeperTitle.classList.add("minesweeper__title");
-    minesweeperTitle.textContent = "Minesweeper";
+    minesweeperTitle.textContent = "Сапер";
     const minesweeperSubtitle = document.createElement("h3");
     minesweeperSubtitle.classList.add("minesweeper__subtitle");
     minesweeperSubtitle.innerHTML = `Нажмите на смайлик чтобы перезапустить игру.<br>
