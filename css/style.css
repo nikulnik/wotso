@@ -76,9 +76,9 @@ h6 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: #e1dfdf;
+    background-color: #a99f9f;
     padding: 10px;
-    border: 5px solid #e1dfdf;
+    border: 5px solid #a99f9f;
     position: relative;
 }
 
@@ -156,7 +156,7 @@ h6 {
 }
 
 .menu__list-item::after {
-    content: " ❯";
+    
     position: absolute;
     top: 21px;
 }
@@ -255,7 +255,7 @@ h6 {
 }
 
 .minesweeper__desk {
-    border: 5px solid #e1dfdf;
+    border: 5px solid #a99f9f;
     border-radius: 0 0 5px 5px;
 }
 

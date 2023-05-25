@@ -12,17 +12,23 @@ let isClicked = false;
 let clicksCounter = 0;
 let minesCountRender = MINES;
 let isSound = false;
-let isTheme = false;
+let isTheme = true;
 
 let rgb = `rgb(255,255,255)`;
 
 let red = "red";
 let dark = "#1a79d1";
 let darkStyle = red;
+isTheme = true;
+darkStyle = dark;
+document.querySelector('html').classList.add("dark");
+
+
 YaGames.init().then(ysdk => {
         console.log('Yandex SDK initialized');
         window.ysdk = ysdk;
     });
+
 function renderCells() {
     for (let i = 0; i < ROWS; i++) {
         const row = document.createElement("div");
@@ -185,6 +191,7 @@ function cellHandlerIndex(index) {
 
     } else {
         visitedCells.add(index);
+        cells[index].style.background = "darkgray";
         cells[index].textContent = `${minesCounter}`;
         if (minesCounter === 1) {
             rgb = `rgb(0,0,255)`;
@@ -225,7 +232,7 @@ function renderFlags() {
 }
 
 function zeroMines(index) {
-    cells[index].style.backgroundColor = "lightgray";
+    cells[index].style.backgroundColor = "darkgray";
 }
 
 function minesCount(minesIndex, index) {
@@ -319,14 +326,14 @@ function createMenu() {
                 <li class="menu__sublist-item menu__sublist-item--active" data-sound="0">Выкл</li>
             </ul>
             </li>
-
+            <!--
             <li class="menu__list-item">
             Тема игрового поля
             <ul class="menu__sublist">
                 <li class="menu__sublist-item menu__sublist-item--active" data-theme="1">Светлая</li>
                 <li class="menu__sublist-item" data-theme="2">Тёмная</li>
             </ul>
-            </li>
+            </li>-->
         </ul>
     </div>
     `;
@@ -377,7 +384,7 @@ function basicMarkup() {
     const desk = document.createElement("div");
     desk.classList.add("minesweeper__desk");
 
-    clicksCount.textContent = `Количество твоих ходов: ${clicksCounter}`;
+    clicksCount.textContent = `Количество ходов: ${clicksCounter}`;
     time.textContent = `Время игры: 00:00`;
 
     mineCount.textContent = `${minesCountRender}`;
@@ -568,18 +575,18 @@ function subMenuHandler(event) {
         startNewGame();
     }
 
-    if (theme === "1") {
-        isTheme = false;
-        darkStyle = red;
-        html.classList.remove("dark");
-        startNewGame();
-    }
-
-    if (theme === "2") {
-        isTheme = true;
-        darkStyle = dark;
-        html.classList.add("dark");
-        startNewGame();
-    }
+    // if (theme === "1") {
+    //     isTheme = false;
+    //     darkStyle = red;
+    //     html.classList.remove("dark");
+    //     startNewGame();
+    // }
+    // theme = "2"
+    //if (theme === "2") {
+        // isTheme = true;
+        // darkStyle = dark;
+        // html.classList.add("dark");
+        // startNewGame();
+    // }
 
 }
